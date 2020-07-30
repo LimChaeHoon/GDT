@@ -15,12 +15,18 @@ spring:
           enabled: true
           lower-case-service-id: true
       routes:
-      - id: path_route
+      - id: get_route
         uri: http://172.19.138.160:32030
         predicates:
         - Method=GET
         filters:
         - SetPath=/gamedata.lms.kr/v1.0/servers
+      - id: post_route
+        uri: http://172.19.138.160:32030
+        predicates:
+        - Method=POST
+        filters:
+        - SetPath=/gamedata.lms.kr/v1.0/class_cards
 
 management:
   endpoints:
