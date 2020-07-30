@@ -18,7 +18,6 @@ spring:
       - id: path_route
         uri: http://172.19.138.160:32030/gamedata.lms.kr/v1.0/servers
         predicates:
-        - Path=/hello
         - Method=GET
 
 management:
