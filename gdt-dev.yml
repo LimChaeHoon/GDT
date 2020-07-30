@@ -1,0 +1,35 @@
+server:
+  port: 8181
+  
+spring:
+  profiles: dev
+  application: 
+    name: gdt
+  cloud:
+    config:
+      uri: http://localhost:8888/gdt/dev
+    gateway:
+      enabled: true
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      routes:
+      - id: path_route
+        uri: http://172.19.138.160:32030/gamedata.lms.kr/v1.0/servers
+        predicates:
+        - Path=/hello
+        - Method=GET
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh  
+        
+application:
+  gdt:
+    demo:
+      name: game
+      alias: data
+      temp: hello world
