@@ -18,15 +18,15 @@ spring:
       - id: hello_route
         uri: http://172.19.138.160:32030
         predicates:
-        - Path=/world
+        - Path=/hello/**
         filters:
-        - SetPath=/gamedata.lms.kr/v1.0/servers
+        - SetPath=/gamedata.lms.kr/v1.0
       - id: world_route
         uri: http://192.168.212.7:30194
         predicates:
-        - Path=/hello
+        - Path=/world/**
         filters:
-        - SetPath=/gamedata.lms.kr/v1.0/servers
+        - SetPath=/gamedata.lms.kr/v1.0
 
 management:
   endpoints:
