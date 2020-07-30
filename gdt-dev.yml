@@ -22,11 +22,11 @@ spring:
         filters:
         - SetPath=/gamedata.lms.kr/v1.0/servers
       - id: post_route
-        uri: http://172.19.138.160:32030
+        uri: http://192.168.212.7:30194
         predicates:
         - Method=POST
         filters:
-        - SetPath=/gamedata.lms.kr/v1.0/class_cards
+        - SetPath=/gamedata.lms.kr/v1.0/servers
 
 management:
   endpoints:
