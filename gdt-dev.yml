@@ -19,7 +19,7 @@ spring:
         uri: http://172.19.138.160:32030
         predicates:
         - Method=GET
-        filter:
+        filters:
         - SetPath=/gamedata.lms.kr/v1.0/servers
 
 management:
