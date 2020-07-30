@@ -32,4 +32,4 @@ application:
     demo:
       name: game
       alias: data
-      temp: hello world
+      temp: hello world!!
