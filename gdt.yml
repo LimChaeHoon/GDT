@@ -1,0 +1,38 @@
+spring:
+  profiles: dev
+  application: 
+    name: gdt
+  cloud:
+    config:
+      uri: http://localhost:8888/gdt/dev
+    gateway:
+      enabled: true
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      routes:
+      - id: hello_route
+        uri: http://192.168.212.7:30194
+        predicates:
+        - Path=/hello/**
+        filters:
+        - RewritePath=/hello/(?<segment>.*), /gamedata.lms.kr/v1.0/$\{segment}
+      - id: world_route
+        uri: http://172.19.138.160:32030
+        predicates:
+        - Path=/world/**
+        filters:
+        - RewritePath=/world/(?<segment>.*), /gamedata.lms.kr/v1.0/$\{segment}
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh  
+        
+application:
+  gdt:
+    demo:
+      name: game
+      alias: data
+      temp: hello world!!
